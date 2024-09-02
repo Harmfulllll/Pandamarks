@@ -1,7 +1,7 @@
 import './App.css'
 import { Signup } from './pages/Signup/Signup'
 import {Login } from './pages/Login/Login'
-import { Dashboard } from './pages/Dashboard/Dashboard'
+import  Dashboard  from './pages/Dashboard/Dashboard'
 import { Route, Routes, Navigate } from 'react-router-dom'
 
 function App() {

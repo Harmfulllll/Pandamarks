@@ -1,5 +1,6 @@
 .dashboard-navbar{
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     height: 70px;
@@ -9,13 +10,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     z-index: 1000;
 
     .dashboard-navbar-left{
         display: flex;
         align-items: center;
         padding-left: 4vw;
+        img{
+          height: 40px;
+            width: 40px;
+            margin-right: 10px;
+        }
     }
     .dashboard-navbar-right{
         display: flex;

@@ -17,8 +17,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-export function DashboardNavbar() {
+ function DashboardNavbar() {
   const [search, setSearch] = useState("");
     return(
         <div className="dashboard-navbar">
@@ -40,7 +39,7 @@ export function DashboardNavbar() {
                 </div>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="outline">Open</Button>
+                        <Button variant="outline">Profile</Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56">
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -97,3 +96,5 @@ export function DashboardNavbar() {
         </div>
     )
 }
+
+export default DashboardNavbar;
