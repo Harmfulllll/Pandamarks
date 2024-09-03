@@ -1,0 +1,119 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ECE9E1;
+
+    .home-body{
+        overflow-y: auto;
+        flex: 1;
+        color: #E43C13;
+
+        .body-upper{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4vw 4vw 2vw 4vw;
+             
+            h1{
+                font-family: "DM Serif Text", serif;
+                font-size: 6rem;
+                font-weight: 900;
+                font-style: italic;
+                line-height: 0.9;
+            }
+            h2{
+                font-family: "DM Serif Text", serif;
+                font-size: 2rem;
+                font-weight: 400;
+                font-style: italic;
+            }
+        } 
+        .body-lower{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0.8vw 4vw;
+        
+            p{
+            font-family: 'inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            }
+            .get-started{
+                margin-top: 1.5rem;
+                padding: 0.8rem 1.2rem;
+                background-color: #E43C13;
+                color: #ECE9E1;
+                border: none;
+                border-radius: 8px;
+                font-family: 'inter', sans-serif;
+                font-size: 1.2rem;
+                font-weight: 500;
+                cursor: pointer;
+                border: 1px solid #00000017;
+                transition: all 0.3s ease;
+                box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.637);
+                &:hover{
+                    border: 1px solid #000000;
+                    scale: 1.1;
+                }
+            }
+        }
+
+        .hero-image{
+            width: 100%;
+            height: auto;
+            padding: 1.2vw 2vw;
+            img{
+                border-radius: 10px;
+            }
+        }
+    }
+    .page2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8vw 4vw 4vw 4vw;
+
+        h1{
+            font-family: "inter", serif;
+            font-size: 4rem;
+            color: #E43C13;
+            font-weight: 900;
+            line-height: 0.9;
+        }
+        .features{
+            padding: 6vw 2vw;
+            color: #E43C13;
+          .AccordionTrigger{
+            font-family: 'inter', sans-serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            text-decoration: none;
+          }
+          .AccordionContent{
+            font-family: 'inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 1vw 0;
+          }
+        }
+    }
+    .footer{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding: 2vw 4vw;
+        font-family: 'inter', sans-serif;
+        font-size: 1.8rem;
+        color: #E43C13;
+    }
+}
