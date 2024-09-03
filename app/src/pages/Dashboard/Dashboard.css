@@ -8,4 +8,11 @@
         overflow-y: auto;
         flex: 1;
     }
+
+    .footer{
+       display: flex;
+       justify-content: end;
+       align-items: center;
+       padding: 4vw 4vw;
+    }
 }
