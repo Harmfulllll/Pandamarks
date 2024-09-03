@@ -4,8 +4,14 @@ import './Dashboard.css';
 function Dashboard() {
    return (
       <div className="dashboard">
+         <div className="nav">
          <DashboardNavbar />
-          <DashboardBody />
+         </div>
+         <div className="dash-body">
+         <DashboardBody />
+
+         </div>
+
       </div>
    )
 }

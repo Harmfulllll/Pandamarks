@@ -1,5 +1,5 @@
 import './NoBookmarks.css';
-import { Button } from "@/components/ui/button";
+import AddBookmark from '../AddBookmark/AddBookmark';
 import {
     Card,
     CardContent,
@@ -10,6 +10,7 @@ import {
 function NoBookmarks() {
   return (
     <div className="no-bookmarks">
+    <AddBookmark />
          <Card className="w-[500px]">
       <CardHeader>
         <CardTitle>No bookmarks found</CardTitle>
