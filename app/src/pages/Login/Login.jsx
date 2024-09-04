@@ -60,17 +60,16 @@ export function Login() {
           <div className="grid gap-2 text-white">
             <div className="flex items-center">
               <Label htmlFor="password">Password</Label>
-              <Link href="#" className="ml-auto inline-block text-sm underline text-white">
-                Forgot your password?
-              </Link>
+              <Link to="/forgotpassword" className="
+              text-black-400 ml-auto
+              ">
+                Forgot password?
+            </Link>
             </div>
             <Input id="password" type="password" required  onChange={(e)=>handleChange(e)}/>
           </div>
           <Button type="submit" variant='outline'  className="w-full"  onClick={(e)=>handleSubmit(e)}>
             Login
-          </Button>
-          <Button className="w-full ">
-            Login with Google
           </Button>
         </div>
         <div className="mt-4 text-center text-sm text-white">

@@ -73,7 +73,7 @@ export function Signup() {
             <Input
               id="email"
               type="email"
-              placeholder="m@example.com"
+              placeholder="mickymouse@example.com"
               required
               onChange={(e)=>handleChange(e)}
             />
@@ -86,9 +86,6 @@ export function Signup() {
                onClick={(e)=>handleSubmit(e)}
           >
             Create an account
-          </Button>
-          <Button className="w-full ">
-            Sign up with GitHub
           </Button>
         </div>
         <div className="mt-4 text-center text-sm  text-white">

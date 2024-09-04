@@ -27,6 +27,12 @@ const userSchema= new mongoose.Schema({
             ref: "Bookmark",
         }
     ],
+    resetPasswordToken: {
+        type: String,
+    },
+    resetPasswordExpire: {
+        type: Date,
+    },
 },{
     timestamps: true,
 });

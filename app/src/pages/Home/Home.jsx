@@ -7,6 +7,7 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "@/components/ui/accordion"
+  import {motion} from 'framer-motion';
 
 function Home(){
    return(
@@ -14,16 +15,31 @@ function Home(){
             <HomeNavbar />
             <div className="home-body">
                 <div className="body-upper">
-                <h1>Bookmarks</h1>
-                <h2>
+                <motion.h1
+                initial={{opacity:0, y:40}}
+                whileInView={{opacity:1, y:0}}
+                transition={{duration:0.8, delay:0.1}}
+                >Bookmarks</motion.h1>
+                <motion.h2
+                 initial={{opacity:0, y:40}}
+                 whileInView={{opacity:1, y:0}}
+                 transition={{duration:0.8, delay:0.1}}
+                >
                     made easy
-                </h2>
+                </motion.h2>
                 </div>
                 <div className="body-lower">
-                <p>
+                <motion.p
+                 initial={{opacity:0, y:40}}
+                 whileInView={{opacity:1, y:0}}
+                 transition={{duration:0.8, delay:0.1}}
+                >
                 Bookmark, tag, and find what you need, effortlessly!
-                </p>
-                <button className='get-started'>Get Started</button>
+                </motion.p>
+                <button className='get-started'
+                onClick={() => window.location.href = './register'}
+                >Get Started
+                </button>
                 </div>
 
                 <div className="hero-image">
@@ -31,10 +47,18 @@ function Home(){
                 </div>
             </div>
             <div className="page2">
-                <h1>
+                <motion.h1
+                    initial={{opacity:0, y:50}}
+                    whileInView={{opacity:1, y:0}}
+                    transition={{duration:0.9, delay:0.1}}
+                >
                     Manage all your bookmarks in one place
-                </h1>
-                <div className="features">
+                </motion.h1>
+                <motion.div 
+                initial={{opacity:0, y:40}}
+                whileInView={{opacity:1, y:0}}
+                transition={{duration:0.8, delay:0.1}}
+                className="features">
                 <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger >Add your desired websites</AccordionTrigger>
@@ -59,19 +83,19 @@ function Home(){
         </AccordionContent>
       </AccordionItem>
     </Accordion>
-                </div>
+                </motion.div>
             </div>
 
             <div className="footer">
   
           <div className="flex h-5 items-center space-x-4 text-sm">
-    <div>Made with love</div>
-    <Separator orientation="vertical" />
-    <div>
-     <a href="">Report a bug</a>
-    </div>
+              <div>Made with love</div>
+              <Separator orientation="vertical" />
+             <div>
+             <a href="">Report a bug</a>
+            </div>
            </div>
-          </div>
+            </div>
            </div>
    )
 }
