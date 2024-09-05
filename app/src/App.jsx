@@ -6,19 +6,21 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
 import ResetPassword from './pages/ResetPassword/ResetPassword'
 import Home from './pages/Home/Home'
 import { Route, Routes, Navigate } from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
 function App() {
- 
+  
+  const user= useSelector(state=>state.auth.user)
 
   return (
     <> 
      <Routes>
         <Route path="/resetpassword/:resetToken" element={<ResetPassword/>} />
         <Route path="/forgotpassword" element={<ForgotPassword/>} />
-        <Route path="/" element={<Home/>} />
-        <Route path="/register" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/"  element={user ? <Dashboard/> : <Home/>} />
+        <Route path="/register"  element={user ? <Dashboard/> : <Signup/>} />
+        <Route path="/login" element={user ? <Dashboard/> : <Login/>} />
+        <Route path="*" element={<Navigate to="/"/>} />
      </Routes>
         
     </>

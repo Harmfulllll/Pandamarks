@@ -18,7 +18,8 @@ const authSlice= createSlice({
         },
         signup: (state,action)=>{
             state.user= action.payload;
-        }
+        },
+        
     }
 })
 export default authSlice.reducer;

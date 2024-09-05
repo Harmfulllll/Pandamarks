@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-
+import { login } from "@/redux/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const useLogin=()=>{
     const {toast}= useToast();
+    const dispatch= useDispatch();
+    const navigate= useNavigate();
     const [loginLoading, setLoginLoading] = useState(false);
 
     const loginUser= async({email,password})=>{
@@ -27,12 +31,16 @@ const useLogin=()=>{
             title: "Success!",
             description: "Logged in successfully.",
           })
-         
+        localStorage.setItem('User', JSON.stringify(data.data));
+          dispatch(login(data.data));
+          navigate('/');
+        
     } catch (error) {
         toast({
             variant: "destructive",
             title: "Uh oh! Something went wrong.",
             description: error.message,
+            duration: 1000,
           })
         
     }finally{
