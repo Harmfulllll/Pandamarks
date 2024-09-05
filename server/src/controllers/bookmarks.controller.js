@@ -34,7 +34,7 @@ const createBokmark= async(req,res)=>{
             user: req.user.id,
             description: metadata.description, 
             image: metadata.images[0],
-            sitename: metadata.sitename,
+            sitename: metadata.sitename[0],
             tags: metadata.tags,
          })
             await newBookmark.save();

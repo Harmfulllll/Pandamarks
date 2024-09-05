@@ -28,9 +28,7 @@ import { useSelector } from 'react-redux';
   const {Logout } = useLogout();
   const user= useSelector(state=>state.auth.user);
   const bookmarks = useSelector(state => state.bookmark.bookmarks);
-
-  console.log(bookmarks);
-
+  
   const handleLogout= async()=>{
     await Logout();
   }
@@ -81,7 +79,9 @@ import { useSelector } from 'react-redux';
                        {
                           bookmarks ? ( 
                             <>
-                            <p>{bookmarks.length}</p>
+                            <p>
+                              {bookmarks.length}
+                            </p>
                             </>
                           ) :
                           (

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
-    bookmarks: null,
+    bookmarks: [],
 }
 
 const bookmarkSlice= createSlice({
@@ -9,7 +9,7 @@ const bookmarkSlice= createSlice({
     initialState,
     reducers:{
         createBookmark: (state, action)=>{
-            state.bookmarks= action.payload;
+            state.bookmarks.push(action.payload);
         },
         deleteBookmark: (state, action)=>{
             state.bookmarks= action.payload;
@@ -19,3 +19,4 @@ const bookmarkSlice= createSlice({
 });
 
 export default bookmarkSlice.reducer;
+export const {createBookmark, deleteBookmark}= bookmarkSlice.actions;
