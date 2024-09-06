@@ -3,13 +3,13 @@ import NoBookmarks from '../NoBookmarks/NoBookmarks';
 import HaveBookmarks from '../HaveBookmarks/HaveBookmarks';
 import { useSelector } from 'react-redux';
 
-function DashboardBody() {
+function DashboardBody({search}) {
   const user= useSelector(state=>state.auth.user);
   const bookmarks = useSelector(state => state.bookmark.bookmarks);
   return (
     <div className="dashboard-body">
       {
-        !bookmarks ? <NoBookmarks /> : <HaveBookmarks bookmarks={bookmarks} />
+        !bookmarks ? <NoBookmarks /> : <HaveBookmarks search={search}/>
       }
     </div>
   );

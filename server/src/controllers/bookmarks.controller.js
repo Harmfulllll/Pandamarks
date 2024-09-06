@@ -93,6 +93,7 @@ const getBookmarks= async(req,res)=>{
         if(!data){
             return res.status(400).json(new apiResponse(400,null,"No bookmarks found"));
         }
+        data.password= undefined;
         return res.status(200).json(new apiResponse(200,data,"Bookmarks fetched successfully"));
         
     } catch (error) {

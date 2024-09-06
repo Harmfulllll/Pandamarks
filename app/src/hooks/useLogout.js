@@ -26,7 +26,7 @@ const useLogout = () => {
         toast({
             title: "Success!",
             description: "Logged out ",
-            duration:500,
+            duration:1000,
           })
         
     } catch (error) {
@@ -35,7 +35,7 @@ const useLogout = () => {
             variant: "destructive",
             title: "Uh oh! Something went wrong.",
             description: error.message,
-            duration: 500,
+            duration: 1000,
           })
     }finally{
         setLogoutLoading(false)

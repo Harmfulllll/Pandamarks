@@ -23,7 +23,7 @@ function Bookmark({
         <div className="card-top">
           <div className="card-header">
           <img src={`https://icon.horse/icon/${domain}`} alt={`${title}icon`} className='icon' />
-          <h2 className="card-title">{title}</h2>
+          <h2 className="card-title ">{title}</h2>
           </div>
           <div className="dropdown-menu">
           <DropdownMenu>
@@ -52,7 +52,7 @@ function Bookmark({
             ))}
           </div>
           <a href={url} target='_blank' className='card-link'>{url}</a>
-          <p className="card-description">
+          <p className="card-description truncate">
             {description}
           </p>
 
