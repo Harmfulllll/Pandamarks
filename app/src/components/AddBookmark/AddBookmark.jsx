@@ -21,7 +21,7 @@ export default function AddBookmark() {
       <Button type="submit" onClick={
         addBookmark
       }>
-        {bookmarkLoading ? <BeatLoader size={8} color="white" /> : "Add"}
+        {bookmarkLoading ? <BeatLoader size={8} color="white" /> : "Add Url"}
       </Button>
     </div>
   )

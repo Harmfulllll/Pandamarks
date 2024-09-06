@@ -29,12 +29,12 @@ const createBokmark= async(req,res)=>{
             return res.status(500).json(new apiResponse(500,null,"Error fetching metadata"));
         }
          const newBookmark= new bookmarkModel({
-            title: metadata.title,
+            title: metadata.title || metadata.domain,
             url,
             user: req.user.id,
             description: metadata.description, 
             image: metadata.images[0],
-            sitename: metadata.sitename[0],
+            sitename: metadata.domain,
             tags: metadata.tags,
          })
             await newBookmark.save();
@@ -86,10 +86,12 @@ const deleteBookmark= async(req,res)=>{
 const getBookmarks= async(req,res)=>{
     try {
         const userid= req.user.id;
+       
         if(!userid){
             return res.status(400).json(new apiResponse(400,null,"User not found"));
         }
         const data= await userModel.findById(userid).populate("bookmarks");
+
         if(!data){
             return res.status(400).json(new apiResponse(400,null,"No bookmarks found"));
         }

@@ -8,10 +8,16 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+import useDeleteBookmark from '@/hooks/useDeleteBookmark';
 
 function Bookmark({
-    title, url, description, image, tags, domain
+    title, url, description, image, tags, domain ,id
 }){
+  const {deleteBookmarkLoading, DeleteBookmark} = useDeleteBookmark();
+
+  const handleDelete = async()=>{
+    await DeleteBookmark(id);
+  }
    return(
       <div className="card">
       <div className='card-image'>
@@ -23,7 +29,7 @@ function Bookmark({
         <div className="card-top">
           <div className="card-header">
           <img src={`https://icon.horse/icon/${domain}`} alt={`${title}icon`} className='icon' />
-          <h2 className="card-title ">{title}</h2>
+          <h2 className="card-title">{title}</h2>
           </div>
           <div className="dropdown-menu">
           <DropdownMenu>
@@ -39,20 +45,27 @@ function Bookmark({
              Pin
           </DropdownMenuItem>
         </DropdownMenuGroup>
-        <DropdownMenuItem>Delete</DropdownMenuItem>
+        <DropdownMenuItem onClick={()=>handleDelete(id)} 
+        >Delete</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
     </div>
           </div>
-          <div className="card-tags">
-            {tags.map((tag, index) => (
+          <div className="card-tags truncate">
+
+            { tags.length>0 ? tags.map((tag, index) => (
               <span key={index} className="card-tag">
                 {tag}
               </span>
-            ))}
+            )) : (
+              <p>
+                Add tags...
+              </p>
+            )
+          }
           </div>
           <a href={url} target='_blank' className='card-link'>{url}</a>
-          <p className="card-description truncate">
+          <p className="card-description">
             {description}
           </p>
 

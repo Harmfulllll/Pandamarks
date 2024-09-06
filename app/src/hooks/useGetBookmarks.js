@@ -8,6 +8,7 @@ const useGetBookmarks = () => {
     const {toast}= useToast();
    
     const Bookmarks= async()=>{
+        console.log("Fetching bookmarks");
          try { 
             setBookmarksLoading(true);
             
@@ -22,13 +23,6 @@ const useGetBookmarks = () => {
             if(data.statusCode>=400){
                 throw new Error(data.message);
             }
-            toast({
-                variant: "success",
-                title: "Loading..",
-                description: "Hold on! We are fetching your bookmarks",
-                duration: 1000,
-              })
-            
             dispatch(getBookmarks(data.data));
 
     

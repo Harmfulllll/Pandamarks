@@ -23,8 +23,7 @@ import {
 import { useSelector } from 'react-redux';
 
 
- function DashboardNavbar() {
-  const [search, setSearch] = useState("");
+ function DashboardNavbar({ search, setSearch }) {
   const {Logout } = useLogout();
   const user= useSelector(state=>state.auth.user);
   const bookmarks = useSelector(state => state.bookmark.bookmarks);
@@ -45,7 +44,7 @@ import { useSelector } from 'react-redux';
           <input
             
             type="text"
-            placeholder="Search..."
+            placeholder="Search by title or url..."
             className="search-input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}

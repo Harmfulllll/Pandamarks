@@ -6,25 +6,25 @@
     padding: 0 4vw;
     margin-top: 7rem;
     gap: 2rem;
-    .add-bookmark{
-        display: flex;
-        justify-content: center;
-        height: auto;
-        width: 100%;
-        align-self: center;
-    }
-    .bookmark-data{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 20px;
-        max-width: 1200px;
-        padding: 0 4vw;
-        width: 100%;
-        justify-content: center;
-        .bookmark-card{
-            max-width: 350px;
-            box-sizing: border-box;
-        }
+}
+.add-bookmark{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    align-self: center;
+}
+.bookmark-data{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    padding: 0 4vw;
+    width: 100%;
+    justify-content: center;
+    .bookmark-card{
+        max-width: 350px;
+        box-sizing: border-box;
     }
 }
 
