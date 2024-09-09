@@ -21,8 +21,13 @@ const useDeleteBookmark = () => {
             if(data.statusCode>=400){
                 throw new Error(data.message);
             }
-            dispatch(deleteBookmark(id));
-           
+            dispatch(deleteBookmark(data));
+            toast({
+                variant: "success",
+                title: "Hurray!",
+                description: "Bookmark deleted successfully",
+                duration: 1000,
+            });
             
         } catch (error) {
             console.log(error);

@@ -133,6 +133,25 @@ const addTags= async(req,res)=>{
     }
 }
 
+const pinBookmark= async(req,res)=>{
+    try {
+        const id= req.params.bookmarkid;
+        if(!id){
+            return res.status(400).json(new apiResponse(400,null,"No bookmark found with this id"));
+        }
+        const bookmark= await bookmarkModel.findById(id);
+        if(!bookmark){
+            return res.status(400).json(new apiResponse(400,null,"No bookmark found"));
+        }
+        bookmark.pinned= !bookmark.pinned;
+        await bookmark.save();
+        return res.status(200).json(new apiResponse(200,bookmark,));
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json(new apiResponse(500,null,error.message));
+    }
+}
 
 
-export {createBokmark, deleteBookmark, getBookmarks, addTags};
+export {createBokmark, deleteBookmark, getBookmarks, addTags, pinBookmark};

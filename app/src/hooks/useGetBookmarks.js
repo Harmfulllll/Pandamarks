@@ -8,11 +8,10 @@ const useGetBookmarks = () => {
     const {toast}= useToast();
    
     const Bookmarks= async()=>{
-        console.log("Fetching bookmarks");
          try { 
             setBookmarksLoading(true);
             
-            const res= await fetch('./api/v1/bookmarks/get',{
+            const res= await fetch('/api/v1/bookmarks/get',{
                 method:'GET',
                 headers:{
                     'Content-Type':'application/json',
@@ -25,7 +24,6 @@ const useGetBookmarks = () => {
             }
             dispatch(getBookmarks(data.data));
 
-    
          } catch (error) {
             console.log(error);
             toast({

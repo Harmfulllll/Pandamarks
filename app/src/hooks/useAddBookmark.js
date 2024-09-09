@@ -30,7 +30,6 @@ const useAddBookmark = () => {
             });
             dispatch(createBookmark(data));
 
-            
         } catch (error) {
             console.log(error);
             toast({

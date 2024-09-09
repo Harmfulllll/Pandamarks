@@ -1,25 +1,32 @@
 import { Skeleton } from "@/components/ui/skeleton";
-import { useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import Bookmark from "@/components/Bookmark/Bookmark";
 import AddBookmark from '../AddBookmark/AddBookmark';
 import useGetBookmarks from '@/hooks/useGetBookmarks';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import './HaveBookmarks.css';
 
-function HaveBookmarks({ search }) {
+function HaveBookmarks({ search}) {
     const { bookmarksLoading, Bookmarks } = useGetBookmarks();
 
-    useEffect(() => {
-        Bookmarks();
-    }, []);
+    const [refresh, setRefresh] = useState(false);
 
-    let bookmarks = useSelector(state => state.bookmark.bookmarks);
+   useEffect(() => {
+        Bookmarks();
+    }, []); 
+
+   let bookmarks = useSelector(state => state.bookmark.bookmarks);
+
 
     if (bookmarks && bookmarks.length > 0 && bookmarks[0].bookmarks) {
         bookmarks = bookmarks[0].bookmarks;
     } else {
         bookmarks = []; 
-    }
+    }  
+/*      
+    const handleRefresh = () => {
+        setRefresh(prev => !prev);
+    }; */
 
    if (bookmarksLoading) {
         return (
@@ -55,6 +62,7 @@ function HaveBookmarks({ search }) {
                     bookmarks.filter(({ title, url }) => {
                         return title.indexOf(search) >= 0 || url.indexOf(search) >= 0;
                     })
+                    .sort((a, b) => b.pinned - a.pinned) 
                         .map((bookmark) => (
                             <div className='bookmark-card' key={bookmark._id}>
                                 <Bookmark
@@ -63,8 +71,9 @@ function HaveBookmarks({ search }) {
                                     description={bookmark.description}
                                     image={bookmark.image}
                                     tags={bookmark.tags}
-                                    domain={bookmark.domain}
+                                    domain={bookmark.sitename}
                                     id={bookmark._id}
+                                    pinned={bookmark.pinned}
                                 />
                             </div>
                         ))

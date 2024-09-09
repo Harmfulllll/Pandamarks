@@ -91,3 +91,15 @@ padding: 0.25rem 1rem;
     line-height: 1.25rem;
   
   }
+  .pin-badge{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B2C2E;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+  }

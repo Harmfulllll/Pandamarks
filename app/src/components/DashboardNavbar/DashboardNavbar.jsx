@@ -36,8 +36,8 @@ import { useSelector } from 'react-redux';
     return(
         <div className="dashboard-navbar">
              <div className='dashboard-navbar-left'>
-                <img src="./vite.svg" alt="" />
-                <h1>Bookmarks</h1>
+                <img src="./favicon-32x32.png" alt="" />
+                <h1>PandaMarks</h1>
              </div>
              <div className='dashboard-navbar-right'>
                 <div className="search">
@@ -54,6 +54,7 @@ import { useSelector } from 'react-redux';
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant='outline' size='default'
+                        className=' border-zinc-600'
                          >Profile</Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56">
@@ -105,10 +106,6 @@ import { useSelector } from 'react-redux';
                   </DrawerClose>
                     </DrawerContent>
                        </Drawer>
-                       <DropdownMenuSeparator />
-                            <DropdownMenuItem>
-                               Edit profile
-                            </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem 
