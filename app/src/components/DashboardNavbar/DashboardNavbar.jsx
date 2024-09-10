@@ -26,8 +26,13 @@ import { useSelector } from 'react-redux';
  function DashboardNavbar({ search, setSearch }) {
   const {Logout } = useLogout();
   const user= useSelector(state=>state.auth.user);
-  const bookmarks = useSelector(state => state.bookmark.bookmarks);
- 
+  let bookmarks = useSelector(state => state.bookmark.bookmarks);
+  
+  if (bookmarks && bookmarks.length > 0 && bookmarks[0].bookmarks) {
+    bookmarks = bookmarks[0].bookmarks;
+} else {
+    bookmarks = []; 
+}  
   
   const handleLogout= async()=>{
     await Logout();

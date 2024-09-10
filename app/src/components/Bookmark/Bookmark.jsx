@@ -1,6 +1,6 @@
 import './Bookmark.css';
-import { Button } from "@/components/ui/button"
-import { BeatLoader } from 'react-spinners';
+import { Button } from "@/components/ui/button";
+import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { TiPin } from "react-icons/ti";
 import {
@@ -22,21 +22,43 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
+  import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
+  import { Input } from "@/components/ui/input"
+  import { Label } from "@/components/ui/label"
 import useDeleteBookmark from '@/hooks/useDeleteBookmark';
 import usePinBookmark from '@/hooks/usePinBookmark';
+import useAddTags from '@/hooks/useAddTags';
 
 
 function Bookmark({
     title, url, description, image, tags, domain ,id, pinned
 }){
   const {deleteBookmarkLoading, DeleteBookmark} = useDeleteBookmark();
+  const {tagsLoading, AddTags} = useAddTags();
   const {PinBookmark} = usePinBookmark();
+  const [tagInputs, setTagInputs] = useState('');
   const { toast} = useToast();
 
   const handlePin = async()=>{
     await PinBookmark(id);
     window.location.reload(); 
   }
+
+  const handleAddTags = async()=>{
+    const tagsArray= tagInputs.split(',').map(tag=>tag.trim());
+    await AddTags(tagsArray,id);
+    setTagInputs('');
+    window.location.reload();
+  }
+
 
   const copyUrl = () => {
     navigator.clipboard.writeText(url);
@@ -50,6 +72,11 @@ function Bookmark({
   const handleDelete = async()=>{
     await DeleteBookmark(id);
     window.location.reload();
+    toast({
+      title: 'Bookmark deleted',
+      type: 'success',
+      duration:1000
+    })
   }
    return(
       <div className="card">
@@ -103,20 +130,50 @@ function Bookmark({
 </AlertDialog>
       </DropdownMenuContent>
     </DropdownMenu>
-    </div>
+           </div>
           </div>
-          <div className="card-tags truncate">
-
-            { tags.length>0 ? tags.map((tag, index) => (
-              <span key={index} className="card-tag">
+          <div className="card-tags ">
+          <div className="tags truncate">
+          {Array.isArray(tags) && tags.length > 0 ? (
+        tags.map((tag, index) => (
+            <span key={index} className="card-tag">
                 {tag}
-              </span>
-            )) : (
-              <p>
-                Add tags...
-              </p>
-            )
-          }
+            </span>
+        ))
+    ) : (
+        <p>Add tags...</p>
+    )} </div>
+              <div className="dropdown-menu">
+              <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Add tags</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Add new tags</DialogTitle>
+          <DialogDescription>
+            Add tags to categorize your bookmarks
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Tags
+            </Label>
+            <Input id="tags"
+             className="col-span-3" 
+              value={tagInputs}
+              onChange={(e) => setTagInputs(e.target.value)}
+              placeholder="Enter tags separated by commas"
+             />
+          </div>
+        </div>
+          <Button onClick={handleAddTags} disabled={tagsLoading} 
+          >Save changes</Button>
+        
+      </DialogContent>
+    </Dialog>
+    </div>
           </div>
           <a href={url} target='_blank' className='card-link'>{url}</a>
           <p className="card-description line-clamp-3">

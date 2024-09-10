@@ -112,20 +112,29 @@ const addTags= async(req,res)=>{
             return res.status(400).json(new apiResponse(400,null,"No bookmark found with this id"));
         }
         const bookmark= await bookmarkModel.findById(bookmarkid);
+
         const tags= req.body;
-        if(!tags){
+        if(!tags || !Array.isArray(tags) || tags.length===0){
             return res.status(400).json(new apiResponse(400,null,"Please provide some tags"));
         }
         if(!bookmark){
             return res.status(400).json(new apiResponse(400,null,"No bookmark found"));
         }
-        const tagDoesNotExist= tags.filter(tag=>!bookmark.tags.includes(tag));
-        if(tagDoesNotExist.length>0){
-            bookmark.tags.push(...tags);
-            await bookmark.save();
-            return res.status(200).json(new apiResponse(200,bookmark,"Tags added successfully"));
-        }
-       else  return res.status(400).json(new apiResponse(400,null,"Tags already exists"));
+        
+      const userTags= bookmark.tags.findIndex(tag => tag.userId.toString()===userid);
+
+      if(userTags===-1){
+      
+            bookmark.tags.push({
+              userId: userid,
+                taglist: tags,
+            }
+            );
+      }else{
+            bookmark.tags[userTags].taglist= [...bookmark.tags[userTags].taglist, ...tags];
+      }
+        await bookmark.save();
+        return res.status(200).json(new apiResponse(200,bookmark,"Tags added"));
 
     } catch (error) {
          console.log(error);

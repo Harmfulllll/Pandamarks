@@ -7,10 +7,12 @@ const bookmarkSchema = new mongoose.Schema({
     url:{
         type: String,
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-    },
+    user: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        }
+    ],
     description:{
         type: String,
     },
@@ -22,7 +24,15 @@ const bookmarkSchema = new mongoose.Schema({
     },
     tags:[
         {
-            type: String,
+               userId: {
+               type: mongoose.Schema.Types.ObjectId,
+               ref: "User",
+           },
+           taglist:[
+                {
+                     type: String,
+                }
+           ]
         }
     ],
     pinned:{

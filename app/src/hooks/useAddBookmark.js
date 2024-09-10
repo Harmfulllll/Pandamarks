@@ -26,7 +26,7 @@ const useAddBookmark = () => {
                 variant: "success",
                 title: "Hurray!",
                 description: "Bookmark added successfully",
-                duration: 1000,
+                duration: 3000,
             });
             dispatch(createBookmark(data));
 
@@ -36,7 +36,7 @@ const useAddBookmark = () => {
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",
                 description: error.message,
-                duration: 1000,
+               
               })
             
         }finally{

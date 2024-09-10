@@ -16,7 +16,7 @@ function HaveBookmarks({ search}) {
     }, []); 
 
    let bookmarks = useSelector(state => state.bookmark.bookmarks);
-
+    const user = useSelector(state => state.auth.user.id);
 
     if (bookmarks && bookmarks.length > 0 && bookmarks[0].bookmarks) {
         bookmarks = bookmarks[0].bookmarks;
@@ -27,6 +27,9 @@ function HaveBookmarks({ search}) {
     const handleRefresh = () => {
         setRefresh(prev => !prev);
     }; */
+/* 
+    console.log(bookmarks[0].tags[0].taglist); */
+
 
    if (bookmarksLoading) {
         return (
@@ -51,6 +54,13 @@ function HaveBookmarks({ search}) {
         );
 
     } 
+ 
+  /*   let tags= bookmarks[0].tags;
+    tags = bookmarks[0].tags.filter(tag => tag.userId === user);
+  
+    tags = tags[0].taglist; */
+
+
 
     return (
         <div className="have-bookmarks">
@@ -63,20 +73,24 @@ function HaveBookmarks({ search}) {
                         return title.indexOf(search) >= 0 || url.indexOf(search) >= 0;
                     })
                     .sort((a, b) => b.pinned - a.pinned) 
-                        .map((bookmark) => (
+                        .map((bookmark) => {
+                            const userTags = bookmark.tags.filter(tag => tag.userId === user);
+                            const taglist = userTags.length > 0 ? userTags[0].taglist : [];
+                            return(
                             <div className='bookmark-card' key={bookmark._id}>
                                 <Bookmark
                                     title={bookmark.title}
                                     url={bookmark.url}
                                     description={bookmark.description}
                                     image={bookmark.image}
-                                    tags={bookmark.tags}
+                                    tags={taglist}
                                     domain={bookmark.sitename}
                                     id={bookmark._id}
                                     pinned={bookmark.pinned}
                                 />
                             </div>
-                        ))
+                            )
+})
                 }
             </div>
         </div>

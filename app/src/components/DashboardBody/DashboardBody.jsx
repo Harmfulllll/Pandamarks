@@ -4,32 +4,38 @@ import HaveBookmarks from '../HaveBookmarks/HaveBookmarks';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import useGetBookmarks from '@/hooks/useGetBookmarks';
+import { useToast } from '@/hooks/use-toast';
+
 
 function DashboardBody({search}) {
   const user= useSelector(state=>state.auth.user);
-  const { bookmarksLoading, Bookmarks } = useGetBookmarks();
+  const {bookmarksLoading, Bookmarks}= useGetBookmarks();
+  const {toast}= useToast();
 
-  useEffect(() => {
-    Bookmarks();
-}, []); 
+  useEffect(()=>{
+    if(user){
+      Bookmarks();
+    }
+  },[user]);
 
-let bookmarks = useSelector(state => state.bookmark.bookmarks);
- 
-/* console.log(bookmarks);
+  
 
-if (bookmarks && bookmarks.length > 0 && bookmarks[0].bookmarks) {
+  let bookmarks = useSelector(state => state.bookmark.bookmarks);
+
+  
+
+    
+  if (bookmarks && bookmarks.length > 0 && bookmarks[0].bookmarks) {
     bookmarks = bookmarks[0].bookmarks;
 } else {
     bookmarks = []; 
-}
-
-   */
+} 
 
   
   return (
     <div className="dashboard-body">
       {
-        !bookmarks ? <NoBookmarks /> : <HaveBookmarks search={search} />
+        !bookmarks.length>0 ? <NoBookmarks /> : <HaveBookmarks search={search} />
       }
     </div>
   );

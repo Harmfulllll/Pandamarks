@@ -70,10 +70,15 @@ padding: 0.25rem 1rem;
   
   .card-tags {
     display: flex;
+    justify-content: space-between;
     gap: 8px;
     padding: 0.25rem 1rem;
   }
-  
+   .tags {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+   }
   .card-tag {
     background-color: #2B2C2E;
     color: var(--primary-color);
