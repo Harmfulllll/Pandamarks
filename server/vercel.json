@@ -21,8 +21,8 @@
     , 
     "rewrites": [
     {
-        "source": "/api/:path*",
-        "destination": "https://pandamarks.vercel.app/:path*"
+        "source": "/api",
+        "destination": "https://pandamarks.vercel.app/"
     }
 ]
        
