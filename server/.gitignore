@@ -84,6 +84,8 @@ web_modules/
 .next
 out
 
+.env
+
 # Nuxt.js build / generate output
 .nuxt
 
