@@ -13,9 +13,9 @@ const useGetBookmarks = () => {
             
             const res= await fetch('https://pandamarks.vercel.app/api/v1/bookmarks/get',{
                 method:'GET',
-                headers:{
+             /*    headers:{
                     'Content-Type':'application/json',
-                },
+                }, */
             });
 
             const data= await res.json();
