@@ -57,7 +57,7 @@ userSchema.methods.generateJWT= function(res){
     })
 
     res.cookie("token",token,{
-        domain: 'https://pandamarks.vercel.app/',
+        domain: '.vercel.app',
         httpOnly: true,
         secure: true,
         sameSite: 'none',
