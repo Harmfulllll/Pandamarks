@@ -11,7 +11,7 @@ const useGetBookmarks = () => {
          try { 
             setBookmarksLoading(true);
             
-            const res= await fetch('/api/v1/bookmarks/get',{
+            const res= await fetch('https://pandamarks.vercel.app/api/v1/bookmarks/get',{
                 method:'GET',
                 headers:{
                     'Content-Type':'application/json',
