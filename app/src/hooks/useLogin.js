@@ -16,9 +16,9 @@ const useLogin=()=>{
 
         const res= await fetch('https://pandamarks.vercel.app/api/v1/users/login',{
             method:'POST',
-            headers:{
+          /*   headers:{
                 'Content-Type':'application/json',
-            },
+            }, */
          /*    credentials:'include', */
             body: JSON.stringify({
                 email,
