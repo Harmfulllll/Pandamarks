@@ -17,5 +17,5 @@ export default defineConfig({
 				target: "https://pandamarks.vercel.app/",
 			},
 		},
-	}, */
+	},  */
 })
