@@ -22,7 +22,7 @@
     "rewrites": [
       {
         "source": "/api/(.*)", 
-        "destination": "https://pandamarks.vercel.app/api/$1"
+        "destination": "https://pandamarks.vercel.app/"
       }
     ]
 
