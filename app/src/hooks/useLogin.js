@@ -14,7 +14,7 @@ const useLogin=()=>{
     try {
         setLoginLoading(true);
 
-        const res= await fetch('https://pandamarks.vercel.app/api/v1/users/login',{
+        const res= await fetch('/api/v1/users/login',{
             method:'POST',
           /*   headers:{
                 'Content-Type':'application/json',

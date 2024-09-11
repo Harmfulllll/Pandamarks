@@ -18,7 +18,13 @@
         "credentials": "include"
       }
     ]
-    
+    ,
+    "rewrites": [
+      {
+        "source": "/api/(.*)", 
+        "destination": "https://pandamarks.vercel.app/api/$1"
+      }
+    ]
 
        
       }
