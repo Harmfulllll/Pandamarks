@@ -14,7 +14,7 @@ app.use(cookieParser());
 cors(
     {
         origin:process.env.CLIENT_URL,
-        credentials:true
+        credentials:true,
     }
 );
 const PORT=process.env.PORT || 3000;
