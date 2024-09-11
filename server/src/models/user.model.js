@@ -59,7 +59,7 @@ userSchema.methods.generateJWT= function(res){
     res.cookie("token",token,{
         httpOnly: true,
         secure: true,
-        sameSite: "None",
+        sameSite: 'strict',
         maxAge: 7 * 24 * 60 * 60 * 1000,
     })
 }
