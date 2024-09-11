@@ -11,7 +11,6 @@ export default function AddBookmark() {
   const addBookmark = async () => {
      await AddBookmark(url);
       setUrl('');
-      window.location.reload();
     
   }
   return (

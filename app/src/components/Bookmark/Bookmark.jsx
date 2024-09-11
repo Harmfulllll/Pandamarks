@@ -133,10 +133,10 @@ function Bookmark({
            </div>
           </div>
           <div className="card-tags ">
-          <div className="tags truncate">
+          <div className="tags flex flex-wrap truncate">
           {Array.isArray(tags) && tags.length > 0 ? (
         tags.map((tag, index) => (
-            <span key={index} className="card-tag">
+            <span key={index} className="card-tag border-transparent">
                 {tag}
             </span>
         ))

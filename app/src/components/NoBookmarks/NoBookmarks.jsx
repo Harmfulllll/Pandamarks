@@ -3,7 +3,6 @@ import AddBookmark from '../AddBookmark/AddBookmark';
 import {
     Card,
     CardContent,
-    CardDescription,
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"

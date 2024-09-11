@@ -43,7 +43,7 @@ function Home(){
                 </div>
 
                 <div className="hero-image">
-                    <img src="./chrome_ixkO1Y7I71.png" alt="product-image" />
+                    <img src="./chrome_jW6RTg3vWo.png" alt="product-image" />
                 </div>
             </div>
             <div className="page2">

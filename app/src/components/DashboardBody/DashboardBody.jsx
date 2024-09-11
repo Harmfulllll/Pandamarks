@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import useGetBookmarks from '@/hooks/useGetBookmarks';
 import { useToast } from '@/hooks/use-toast';
+import { BeatLoader } from 'react-spinners';
 
 
 function DashboardBody({search}) {
@@ -14,7 +15,7 @@ function DashboardBody({search}) {
 
   useEffect(()=>{
     if(user){
-      Bookmarks();
+     Bookmarks();
     }
   },[user]);
 
@@ -31,11 +32,26 @@ function DashboardBody({search}) {
     bookmarks = []; 
 } 
 
+
+  if(bookmarksLoading){
+    return (
+        <> 
+            <div className="
+            flex flex-col items-center justify-center mt-24 space-y-4 text-center text-gray-500
+
+             ">
+                <div className="loader">
+                    <BeatLoader size={8} color="gray" />
+                </div>
+            </div>
+        </>
+    );
+  } 
   
   return (
     <div className="dashboard-body">
       {
-        !bookmarks.length>0 ? <NoBookmarks /> : <HaveBookmarks search={search} />
+       !bookmarks.length ? <NoBookmarks /> : <HaveBookmarks search={search} />
       }
     </div>
   );

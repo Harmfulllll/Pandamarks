@@ -122,7 +122,7 @@ const addTags= async(req,res)=>{
         }
         
       const userTags= bookmark.tags.findIndex(tag => tag.userId.toString()===userid);
-
+      
       if(userTags===-1){
       
             bookmark.tags.push({
@@ -131,7 +131,13 @@ const addTags= async(req,res)=>{
             }
             );
       }else{
-            bookmark.tags[userTags].taglist= [...bookmark.tags[userTags].taglist, ...tags];
+            const existingTags= bookmark.tags[userTags].taglist;
+            tags.forEach(tag=>{
+                if(!existingTags.includes(tag)){
+                    existingTags.push(tag);
+                }
+            });
+            bookmark.tags[userTags].taglist= existingTags;
       }
         await bookmark.save();
         return res.status(200).json(new apiResponse(200,bookmark,"Tags added"));

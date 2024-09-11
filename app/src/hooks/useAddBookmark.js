@@ -22,13 +22,14 @@ const useAddBookmark = () => {
             if(data.statusCode>=400){
                 throw new Error(data.message);
             }
+            dispatch(createBookmark(data));
+            window.location.reload();
             toast({
                 variant: "success",
                 title: "Hurray!",
                 description: "Bookmark added successfully",
-                duration: 3000,
+                duration: 2000
             });
-            dispatch(createBookmark(data));
 
         } catch (error) {
             console.log(error);
@@ -36,7 +37,7 @@ const useAddBookmark = () => {
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",
                 description: error.message,
-               
+                 duration: 2000
               })
             
         }finally{

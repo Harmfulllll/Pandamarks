@@ -6,7 +6,7 @@ function HomeNavbar() {
            <div className="home-nav-left">
                <img src="./vite.svg" alt="" />
                <h1>
-                  Bookmarks
+                  Pandamarks
                </h1>
            </div>
            <div className="home-nav-right">
