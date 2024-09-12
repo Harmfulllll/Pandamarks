@@ -1,6 +1,7 @@
 import './Signup.css'
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
+import { BeatLoader } from "react-spinners"
 import {
   Card,
   CardContent,
@@ -83,9 +84,11 @@ export function Signup() {
             <Input id="password" type="password" onChange={(e)=>handleChange(e)} />
           </div>
           <Button type="submit" variant='outline'  className="w-full" 
-               onClick={(e)=>handleSubmit(e)}
+               onClick={(e)=>handleSubmit(e)}  disabled={signupLoading}
           >
-            Create an account
+            {
+              signupLoading ? <BeatLoader color="white" /> : "Sign Up"
+            }
           </Button>
         </div>
         <div className="mt-4 text-center text-sm  text-white">

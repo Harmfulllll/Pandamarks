@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import './Login.css'
 import { Button } from "@/components/ui/button"
+import { BeatLoader } from "react-spinners"
 import {
   Card,
   CardContent,
@@ -68,8 +69,10 @@ export function Login() {
             </div>
             <Input id="password" type="password" required  onChange={(e)=>handleChange(e)}/>
           </div>
-          <Button type="submit" variant='outline'  className="w-full"  onClick={(e)=>handleSubmit(e)}>
-            Login
+          <Button type="submit" variant='outline'  className="w-full"   onClick={(e)=>handleSubmit(e)}   disabled={loginLoading}>
+            {
+              loginLoading ? <BeatLoader color="white" size={8} /> : 'Login'
+            }
           </Button>
         </div>
         <div className="mt-4 text-center text-sm text-white">
