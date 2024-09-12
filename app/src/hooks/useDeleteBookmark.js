@@ -11,7 +11,7 @@ const useDeleteBookmark = () => {
     const DeleteBookmark = async (id) => {
         try {
             setDeleteBookmarkLoading(true);
-            const res= await fetch(`/api/v1/bookmarks/delete/${id}`,{
+            const res= await fetch(`https://pandamarks.vercel.app/api/v1/bookmarks/delete/${id}`,{
                 method: 'DELETE',
                 headers:{
                     'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,

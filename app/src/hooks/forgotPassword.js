@@ -9,7 +9,7 @@ const useForgotPassword = () => {
     const forgotPassword = async (email) => {
         setForgotPasswordLoading(true);
         try {
-            const res= await fetch(`/api/v1/users/forgotpassword`,{
+            const res= await fetch(`https://pandamarks.vercel.app/api/v1/users/forgotpassword`,{
                 method: "POST",
              /*    headers: {
                     "Content-Type": "application/json",

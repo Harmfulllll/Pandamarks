@@ -11,7 +11,7 @@ const useAddBookmark = () => {
     const AddBookmark = async(url)=>{
         setBookmarkLoading(true);
         try {
-            const res= await fetch('/api/v1/bookmarks/add',{
+            const res= await fetch('https://pandamarks.vercel.app/api/v1/bookmarks/add',{
                 method:'POST',
                 headers:{
                     'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,

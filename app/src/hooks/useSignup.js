@@ -10,7 +10,7 @@ const useSignup= ()=>{
     const registerUser= async({name,email,password})=>{
     try{
         setSignupLoading(true);
-        const res= await fetch('/api/v1/users/register',{
+        const res= await fetch('https://pandamarks.vercel.app/api/v1/users/register',{
             method: 'POST',
            /*  headers: {
                 'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ const usePinBookmark = () => {
     
     const PinBookmark = async (id) => {
         try {
-            const res = await fetch(`/api/v1/bookmarks/pin/${id}`, {
+            const res = await fetch(`https://pandamarks.vercel.app/api/v1/bookmarks/pin/${id}`, {
                 method: 'PATCH',
                 headers:{
                     'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,

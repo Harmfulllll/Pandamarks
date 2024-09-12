@@ -12,7 +12,7 @@ const useResetPassword = () => {
     const resetPassword = async (password) => {
         setResetPasswordLoading(true);
     try {
-         const res= await fetch(`/api/v1/users/resetpassword/${
+         const res= await fetch(`https://pandamarks.vercel.app/api/v1/users/resetpassword/${
             resetToken
          }`,{
             method: "POST",

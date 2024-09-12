@@ -11,7 +11,7 @@ const useLogout = () => {
         setLogoutLoading(true);
 
     try {
-        const res= await fetch('/api/v1/users/logout',{
+        const res= await fetch('https://pandamarks.vercel.app/api/v1/users/logout',{
             method: 'POST',
             headers:{
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,

@@ -8,7 +8,7 @@ const useAddTags = () => {
     const AddTags = async(tags,id)=>{
         setTagsLoading(true);
         try {
-            const res= await fetch(`/api/v1/bookmarks/tags/${id}`,{
+            const res= await fetch(`https://pandamarks.vercel.app/api/v1/bookmarks/tags/${id}`,{
                 method:'POST',
                 headers:{
                     'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
