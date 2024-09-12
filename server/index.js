@@ -15,6 +15,7 @@ cors(
     {
         origin:process.env.CLIENT_URL,
         credentials:true,
+        allowedHeaders: ['Content-Type', 'Authorization'], // Allow Authorization header
     }
 );
 const PORT=process.env.PORT || 3000;
