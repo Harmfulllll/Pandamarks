@@ -19,6 +19,9 @@ const useLogin=()=>{
           /*   headers:{
                 'Content-Type':'application/json',
             }, */
+            headers:{
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
+            },
            
             body: JSON.stringify({
                 email,

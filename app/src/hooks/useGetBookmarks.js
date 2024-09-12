@@ -16,6 +16,9 @@ const useGetBookmarks = () => {
              /*    headers:{
                     'Content-Type':'application/json',
                 }, */
+                headers:{
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
+                },
             });
 
             const data= await res.json();

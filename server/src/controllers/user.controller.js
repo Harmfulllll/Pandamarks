@@ -65,12 +65,13 @@ const login= async(req,res)=>{
         if(!isMatch){
             return res.status(404).json(new apiResponse(404,null,"Invalid credentials"));
         }
-        user.generateJWT(res);
+        const token = user.generateJWT(res);
         return res.status(200).json(new apiResponse(200,
             {
                 id: user._id,
                 name: user.name,
                 email: user.email,
+                token
               }
             ,"User logged in successfully"));
         
@@ -83,7 +84,7 @@ const login= async(req,res)=>{
 
 const logout= async(req,res)=>{
     try {
-         res.cookie('token','',{maxAge:0})
+            req.user.token= undefined;
             return res.status(200).json(new apiResponse(200,null,"User logged out successfully"));
     } catch (error) {
         console.log(error);

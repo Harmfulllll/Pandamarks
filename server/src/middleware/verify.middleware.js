@@ -3,7 +3,7 @@ import userModel from "../models/user.model.js";
 import apiResponse from "../utils/apiResponse.js";
 const verify= async(req,res,next)=>{
    try {
-    const token= req.cookies.token;
+    const token= req.headers.authorization.split(" ")[1];
 
     if(!token){
         return res.status(401).json(new apiResponse(401,null,"Unauthorized"));
@@ -18,6 +18,7 @@ const verify= async(req,res,next)=>{
         return res.status(404).json(new apiResponse(404,null,"User not found"));
     }
     req.user=user;
+    req.user.token=token;
     next();
     
    } catch (error) {
