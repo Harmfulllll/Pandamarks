@@ -4,6 +4,7 @@ import apiResponse from "../utils/apiResponse.js";
 const verify= async(req,res,next)=>{
    try {
     const token = req.header("Authorization")?.replace("Bearer ", "");
+    console.log(token);
 
     if(!token){
         return res.status(401).json(new apiResponse(401,null,"Unauthorized"));

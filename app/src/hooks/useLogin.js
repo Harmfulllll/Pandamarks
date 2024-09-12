@@ -28,6 +28,8 @@ const useLogin=()=>{
                 password,
             }),
         }, );
+
+        console.log(res);
         
         const data= await res.json();
         if(data.statusCode>=400) throw new Error(data.message);

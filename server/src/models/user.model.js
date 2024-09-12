@@ -55,7 +55,7 @@ userSchema.methods.generateJWT= function(res){
     }, process.env.JWT_SECRET,{
         expiresIn: process.env.JWT_EXPIRY
     })
-   
+
     return token;
 
 
