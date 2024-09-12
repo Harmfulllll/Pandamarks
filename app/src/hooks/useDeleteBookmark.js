@@ -13,9 +13,10 @@ const useDeleteBookmark = () => {
             setDeleteBookmarkLoading(true);
             const res= await fetch(`/api/v1/bookmarks/delete/${id}`,{
                 method: 'DELETE',
-                headers: {
-                'Content-Type': 'application/json',
-            }}
+                headers:{
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
+                },
+              }
             )
             const data= await res.json();
             if(data.statusCode>=400){

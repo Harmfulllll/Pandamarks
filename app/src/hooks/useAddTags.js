@@ -11,7 +11,7 @@ const useAddTags = () => {
             const res= await fetch(`/api/v1/bookmarks/tags/${id}`,{
                 method:'POST',
                 headers:{
-                    'Content-Type':'application/json',
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
                 },
                 body: JSON.stringify(tags)
             });

@@ -11,8 +11,11 @@ const useForgotPassword = () => {
         try {
             const res= await fetch(`/api/v1/users/forgotpassword`,{
                 method: "POST",
-                headers: {
+             /*    headers: {
                     "Content-Type": "application/json",
+                }, */
+                headers:{
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
                 },
                 body: JSON.stringify({email}),
             });

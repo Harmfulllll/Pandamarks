@@ -8,8 +8,8 @@ const usePinBookmark = () => {
         try {
             const res = await fetch(`/api/v1/bookmarks/pin/${id}`, {
                 method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
+                headers:{
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
                 },
             });
             const data = await res.json();

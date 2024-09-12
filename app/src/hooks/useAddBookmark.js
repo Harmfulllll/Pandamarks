@@ -14,7 +14,7 @@ const useAddBookmark = () => {
             const res= await fetch('/api/v1/bookmarks/add',{
                 method:'POST',
                 headers:{
-                    'Content-Type':'application/json',
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('User')).token}`,
                 },
                 body: JSON.stringify({url})
             });
