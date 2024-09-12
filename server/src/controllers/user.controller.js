@@ -66,6 +66,7 @@ const login= async(req,res)=>{
             return res.status(404).json(new apiResponse(404,null,"Invalid credentials"));
         }
         const token = user.generateJWT(res);
+       
         return res.status(200).json(new apiResponse(200,
             {
                 id: user._id,

@@ -3,7 +3,7 @@ import userModel from "../models/user.model.js";
 import apiResponse from "../utils/apiResponse.js";
 const verify= async(req,res,next)=>{
    try {
-    const token= req.headers.authorization.split(" ")[1];
+    const token = req.header("Authorization")?.replace("Bearer ", "");
 
     if(!token){
         return res.status(401).json(new apiResponse(401,null,"Unauthorized"));
