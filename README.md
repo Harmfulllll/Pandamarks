@@ -1,6 +1,6 @@
 # Bookmark Manager App
 
-![Product Image](./app/public/chrome_jW6RTg3vWo.png)
+![Product Image](./app/public/chrome-5h-Ps-Diz-Ylo.png)
 
 
 **Bookmark Manager** is a web application designed to help users save, organize, and manage their bookmarks effortlessly. With easy tagging and fast searching, it provides a seamless experience for organizing your favorite websites.
