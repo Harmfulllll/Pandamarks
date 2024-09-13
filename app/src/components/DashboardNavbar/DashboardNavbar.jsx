@@ -1,5 +1,4 @@
 import './DashboardNavbar.css';
-import { useState } from 'react';
 import useLogout from '@/hooks/useLogout';
 import { Button } from "@/components/ui/button"
 import {
@@ -21,10 +20,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
  function DashboardNavbar({ search, setSearch }) {
   const {Logout } = useLogout();
+  const navigate = useNavigate();
   const user= useSelector(state=>state.auth.user);
   let bookmarks = useSelector(state => state.bookmark.bookmarks);
   
@@ -36,6 +37,7 @@ import { useSelector } from 'react-redux';
   
   const handleLogout= async()=>{
     await Logout();
+    navigate('/');
   }
 
     return(

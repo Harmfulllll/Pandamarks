@@ -92,7 +92,9 @@ function Home(){
               <div>Made with love</div>
               <Separator orientation="vertical" />
              <div>
-             <a href="">Report a bug</a>
+             <a href="https://github.com/Harmfulllll/Pandamarks/issues"
+             target='_blank' 
+             >Report a bug</a>
             </div>
            </div>
             </div>
