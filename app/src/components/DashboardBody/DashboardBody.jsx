@@ -37,7 +37,7 @@ function DashboardBody({search}) {
     return (
         <> 
             <div className="
-            flex flex-col items-center justify-center mt-24 space-y-4 text-center text-gray-500
+            flex flex-col items-center justify-center mt-24 space-y-4 text-center text-gray-500 h-96
 
              ">
                 <div className="loader">
