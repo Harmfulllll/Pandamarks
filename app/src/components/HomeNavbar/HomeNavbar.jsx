@@ -4,8 +4,10 @@ function HomeNavbar() {
    return(
        <div className="home-nav">
            <div className="home-nav-left">
-               <img src="./favicon.ico" alt="" />
-               <h1>
+               <img src="./favicon-32x32.png" alt="" />
+               <h1
+                 onClick={() => window.location.href = "./"}
+               >
                   Pandamarks
                </h1>
            </div>
