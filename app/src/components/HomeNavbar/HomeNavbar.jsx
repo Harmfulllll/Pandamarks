@@ -4,7 +4,7 @@ function HomeNavbar() {
    return(
        <div className="home-nav">
            <div className="home-nav-left">
-               <img src="./vite.svg" alt="" />
+               <img src="./favicon.ico" alt="" />
                <h1>
                   Pandamarks
                </h1>
